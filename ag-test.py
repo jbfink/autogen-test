@@ -2,7 +2,7 @@ import autogen  # start importing the autogen list
 
 config_list = [
     {
-        "model": "mistal-instruct-7b",  # the name of your running model
+        "model": "mistral-instruct-7b",  # the name of your running model
         "api_base": "http://127.0.0.1:8081/v1",  # the local address of the api server
         "api_type": "open_ai",
         "api_key": "sk-1111111111111111111111111111111111111111111",  # some nonsense 'cos we don't want openai, no no

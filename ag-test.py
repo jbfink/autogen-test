@@ -1,11 +1,11 @@
-import autogen  # start imoprting the autogen list
+import autogen  # start importing the autogen list
 
 config_list = [
     {
         "model": "mistal-instruct-7b",  # the name of your running model
         "api_base": "http://127.0.0.1:8081/v1",  # the local address of the api server
         "api_type": "open_ai",
-        "api_key": "sk-1111111111111111111111111111111111111111111",  # some nonsense 'cos fuck openai
+        "api_key": "sk-1111111111111111111111111111111111111111111",  # some nonsense 'cos we don't want openai, no no
     }
 ]
 # create an ai AssistantAgent named "assistant"
@@ -25,10 +25,8 @@ user_proxy = autogen.UserProxyAgent(
     human_input_mode="NEVER",
     max_consecutive_auto_reply=10,
     is_termination_msg=lambda x: x.get("content", "").rstrip().endswith("TERMINATE"),
-    code_execution_config={
-        "work_dir": "agents-workspace",  # set the working directory for the agents to create files and execute
-        "use_docker": False,  # set to True or image name like "python:3" to use docker
-    },
+    code_execution_config=False,
+    
 )
 
 # the assistant receives a message from the user_proxy, which contains the task description
